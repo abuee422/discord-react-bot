@@ -49,17 +49,20 @@ def main():
     print(f"Using token: {AUTH_TOKEN}")
     print(f"Using channel ID: {CHANNEL_ID}")
 
-    # Fetch the latest messages from the channel
-    messages = get_messages(CHANNEL_ID)
-    if not messages:
-        print("No messages found.")
-        return
+    try:
+        # Fetch the latest messages from the channel
+        messages = get_messages(CHANNEL_ID)
+        if not messages:
+            print("No messages found.")
+            return
 
-    # Extract message IDs (newest to oldest)
-    message_ids = [msg["id"] for msg in messages]
+        # Extract message IDs (newest to oldest)
+        message_ids = [msg["id"] for msg in messages]
 
-    # Add reactions to the messages
-    add_reactions(CHANNEL_ID, message_ids, EMOJI)
+        # Add reactions to the messages
+        add_reactions(CHANNEL_ID, message_ids, EMOJI)
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
     main()
