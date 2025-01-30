@@ -1,4 +1,15 @@
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 # Discord credentials and configuration
-AUTH_TOKEN = "[YOUR_AUTH_TOKEN]"  # Replace with your Discord auth token
-CHANNEL_ID = "[CHANNEL_ID]"  # Replace with your channel ID
-EMOJI = "✅"  # Replace with the emoji you want to react with
+AUTH_TOKEN = os.getenv("AUTH_TOKEN")
+if not AUTH_TOKEN:
+    raise ValueError("Missing AUTH_TOKEN in environment variables")
+
+CHANNEL_ID = os.getenv("CHANNEL_ID")
+if not CHANNEL_ID:
+    raise ValueError("Missing CHANNEL_ID in environment variables")
+
+EMOJI = os.getenv("EMOJI", "✅")
