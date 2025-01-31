@@ -45,9 +45,29 @@ CHANNEL_ID=your_target_channel_id
 EMOJI=emoji
 ```
 
-### 2. Get Your Bot Token
-- Go to [Discord Developer Portal](https://discord.com/developers/applications).
-- Select your bot application.
+### 2. Obtaining the Authorization Token
+To use this script, you'll need to extract your Discord Authorization token. Follow the steps below:
+
+1. **Open Discord in Your Browser:**
+Log in to your Discord account and access Discord through your browser (preferably Chrome or Firbefox).
+
+2. **Open Developer Tools:**
+Press `Ctrl + Shift + I` (Windows/Linux) or `Cmd + Option + I` (Mac) to open the Developer Tools.
+
+3. **Go to the Network Tab:**
+In the Developer Tools, navigate to the Network tab. Make sure the Fetch/XHR option is enabled.
+
+4. **Search for @me:**
+In the filter bar, search for @me. This will help you find requests related to your user account.
+
+5. **Click on a Request:**
+Click on one of the requests displayed in the list. These requests usually start with names like science or users/@me.
+
+6. **Find the Token:**
+In the Headers section, scroll down to the Request Headers part. Here, you’ll find the `Authorization` field. The value of this field is your token.
+
+**⚠️ Warning: This token is highly sensitive and should never be shared with anyone.**
+**Your token is like your password. If someone gains access to it, they can fully control your Discord account. Therefore, never share it with anyone, and if it’s compromised, reset your token immediately via Discord's settings.**
 - Copy the **Bot Token** and paste it into the `.env` file.
 
 ### 3. Get Your Channel ID
